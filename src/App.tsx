@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { useWalletConnect } from '@btc-vision/walletconnect';
-import { networks } from '@btc-vision/bitcoin';
 import './App.css';
 
 interface Donation {
@@ -21,8 +20,7 @@ function App() {
     walletAddress, 
     openConnectModal, 
     disconnect, 
-    walletInstance,
-    network
+    walletInstance
   } = useWalletConnect();
 
   const [donations, setDonations] = useState<Donation[]>([]);
@@ -61,7 +59,7 @@ function App() {
         // This is a simplified call. Real implementation depends on the wallet API exposed by walletInstance.
         // Assuming walletInstance aligns with Unisat/OP_WALLET standard interface
         // sendBitcoin(toAddress, satoshis, options)
-        const txHash = await walletInstance.sendBitcoin(DONATION_ADDRESS, satoshis);
+        const txHash = await walletInstance.sendBitcoin(DONATION_ADDRESS, satoshis, {});
 
         setStatus('success');
         
