@@ -59,8 +59,12 @@ function App() {
         // This is a simplified call. Real implementation depends on the wallet API exposed by walletInstance.
         // Assuming walletInstance aligns with Unisat/OP_WALLET standard interface
         // sendBitcoin(toAddress, satoshis, options)
-        const txHash = await walletInstance.sendBitcoin(DONATION_ADDRESS, satoshis, {});
-
+        const feeRate = 10; // sat/vB (default)
+        const txHash = await walletInstance.sendBitcoin(
+          DONATION_ADDRESS,
+          satoshis,
+          message ? { feeRate, memo: message } : { feeRate },
+        );
         setStatus('success');
         
         const newDonation: Donation = {

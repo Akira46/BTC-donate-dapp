@@ -5,7 +5,7 @@ import { WalletConnectProvider } from '@btc-vision/walletconnect'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <WalletConnectProvider network="testnet" theme="dark">
+    <WalletConnectProvider theme="dark">
       <App />
     </WalletConnectProvider>
   </React.StrictMode>,
