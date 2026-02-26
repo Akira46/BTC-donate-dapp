@@ -27,3 +27,4 @@ pnpm-debug.log*
 # Vite
 *.tsbuildinfo
 package-lock.json
+package-lock.json
